@@ -291,41 +291,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ CTA ============ */}
-      <section className="ab-cta-band" aria-labelledby="cta-title">
-        <div className="shell">
-          <div className="inner rv">
-            <img
-              className="photo"
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80"
-              alt=""
-              role="presentation"
-              loading="lazy"
-              width="1800"
-              height="1000"
-            />
-            <div className="veil" aria-hidden="true" />
-            <div className="cnt">
-              <h2 id="cta-title">Start with the basics, at your own pace.</h2>
-              <p>
-                AI Pro App gives Australians a clearer way to research the market: AI-assisted
-                scanning, charts and plain-English education, with no credit card needed.
-              </p>
-              <div className="btns">
-                <a className="ab-btn-solid" href="/#register">
-                  Create your account
-                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
-                <a className="btn-ghostw" href="/#platform">
-                  Explore the platform
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
