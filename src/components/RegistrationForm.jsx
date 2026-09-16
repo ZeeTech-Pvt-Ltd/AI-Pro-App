@@ -446,6 +446,7 @@ export default function RegistrationForm() {
       <div className="flex items-center justify-between gap-3">
         <h3 className="text-lg font-bold text-primary">Create your account</h3>
         <span
+          role="img"
           aria-label="Secure sign-up"
           className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1.5 text-xs font-semibold text-accent-dark sm:px-3 sm:py-1"
         >

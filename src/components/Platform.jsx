@@ -51,10 +51,10 @@ export default function Platform() {
             />
             <div className="relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-2 shadow-soft">
               <img
-                src="/home1img.png"
+                src="/home1img.webp"
                 alt="AI Pro App research platform interface"
-                width={1287}
-                height={1222}
+                width={720}
+                height={684}
                 loading="lazy"
                 className="h-auto w-full rounded-2xl"
               />
