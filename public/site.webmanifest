@@ -1,0 +1,17 @@
+{
+  "name": "AI Pro App",
+  "short_name": "AI Pro App",
+  "description": "AI-assisted cryptocurrency research, scanning and education for Australians.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F5FA",
+  "theme_color": "#4338CA",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

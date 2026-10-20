@@ -1,75 +1,99 @@
 # AI Pro App
 
-AI Pro App is an original, single-page landing website for an Australian market insights,
-analytics and education platform. It is built with **React + Vite + Tailwind CSS** and uses
-**Lucide React** icons plus lightweight hand-written SVG charts - no image assets, no heavy
-animation or UI libraries.
+AI Pro App is an Australian market insights, analytics and education website,
+built with **Next.js App Router**, React, Tailwind CSS and Lucide icons. Every
+route is prerendered at build time with `output: 'export'`, so production is a
+plain static site.
 
 ## Getting started
 
 ```bash
 npm install     # install dependencies
-npm run dev     # start the dev server (http://localhost:5173)
-npm run build   # production build into /dist
-npm run preview # preview the production build locally
+npm run dev     # dev server at http://127.0.0.1:5173
+npm run build   # static export into /out
 ```
+
+After `npm run build`, serve the `out/` folder with any static server, or deploy
+the repository to Vercel (the project is detected automatically). `npm start` is
+not used for the exported site.
 
 ## Stack
 
-- [Vite](https://vitejs.dev/) + React 19 (JavaScript)
-- [Tailwind CSS](https://tailwindcss.com/) v3 (custom AI Pro App design tokens)
-- [Lucide React](https://lucide.dev/) icons
-- Google Fonts: Inter (body) + Space Grotesk (headings)
+- Next.js 16 App Router with `output: 'export'` and `trailingSlash: false`
+- React 19 (JavaScript)
+- Tailwind CSS 3 with the AI Pro App design tokens
+- Lucide React icons
+- `next/font` self-hosted Inter (body) and Space Grotesk (headings)
+
+## Routes
+
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/how-it-works` | How It Works |
+| `/features` | Features |
+| `/reviews` | Reviews |
+| `/about-us` | About Us |
+| `/faq` | FAQ |
+| `/contact` | Contact Us |
+| `/privacy-policy` | Privacy Policy |
+| `/cookie-policy` | Cookie Policy |
+| `/terms-and-conditions` | Terms & Conditions |
+| `/risk-disclosure` | Risk Disclosure |
+| `/disclaimer` | Disclaimer |
+| `/thank-you` | Registration confirmation, noindex |
+
+Unknown paths render `app/not-found.jsx` and return a real 404 status.
 
 ## Project structure
 
 ```
+app/
+  layout.jsx              root layout: fonts, Header/Footer, LegalProvider, GA4
+  globals.css             Tailwind layers and design tokens
+  page.jsx                homepage
+  <route>/page.jsx        one file per route
+  not-found.jsx           404
 src/
-├── components/
-│   ├── Header.jsx            # Sticky navbar + mobile menu
-│   ├── Hero.jsx              # Two-column hero with CSS/SVG dashboard mock
-│   ├── TrustStrip.jsx        # Compact value strip
-│   ├── Register.jsx          # Registration section wrapper
-│   ├── RegistrationForm.jsx  # Reusable, validated registration form
-│   ├── Platform.jsx          # Platform intro with interactive tab mock
-│   ├── Features.jsx          # Six feature cards
-│   ├── Stats.jsx             # Product-oriented statistics band
-│   ├── HowItWorks.jsx        # 3-step timeline
-│   ├── DashboardPreview.jsx  # Full dashboard preview panel
-│   ├── Benefits.jsx          # "Built for Clarity" split section
-│   ├── Testimonials.jsx      # Illustrative "What Users Value" cards
-│   ├── FAQ.jsx               # Accessible single-open accordion
-│   ├── FinalCTA.jsx          # Final call-to-action band
-│   ├── Footer.jsx            # Contact, navigation, legal + risk disclaimer
-│   ├── LegalModal.jsx        # Context provider + accessible legal modal
-│   ├── Logo.jsx              # SVG wordmark
-│   └── MiniChart.jsx         # Dependency-free SVG line/area chart
-├── App.jsx
-├── main.jsx
-└── index.css                 # Tailwind layers + design tokens
+  components/             shared header, footer, sections and form
+  data/                   legal docs, FAQs, per-route SEO config
+  lib/metadata.js         maps the SEO config onto Next Metadata
+  *Page.jsx               page content components
+public/
+  favicon.svg, og-cover.png, site.webmanifest, sitemap.xml, robots.txt
+  home1img.webp, reviews/reviewer-*.jpg
+vercel.json               legacy redirects and the Content Security Policy
 ```
 
 ## Key behaviours
 
-- Smooth-scroll navigation across Home, Platform, Features, How It Works, FAQ and Contact.
-- Registration form validates required fields, email format and Australian phone formats
-  (`04XX XXX XXX`, `+61 4…`, landline area codes), shows inline errors, a loading state and a
-  success message. Submission is simulated and ready to be wired to a backend in
-  `handleSubmit`.
-- FAQ accordion opens one item at a time; full keyboard support and ARIA wiring throughout.
-- Legal documents (Privacy Policy, Terms & Conditions, Risk Disclosure) open in an accessible
-  modal from the form and footer.
+- **Registration form**: one client component on `/` and `/contact`. It posts
+  JSON (`Content-Type: application/json`) to the relay with the offer name
+  `AI-Pro-App-Site`, validates names, email, phone in E.164 and consent, and
+  includes an off-screen honeypot. On success it routes to `/thank-you`.
+- **Static export**: no API routes, server actions, middleware or ISR. The form
+  talks to the external relay directly from the browser.
+- **Analytics**: GA4 `G-00EHNDSXTT` is loaded once from the root layout with
+  `next/script`; Google Search Console verification is set in root metadata.
+- **Legal content**: `src/data/legal.js` is the single source for the footer
+  links, the legal dialog and the standalone legal pages.
+- **Reviews**: sample cards are clearly labelled as samples. Replace the
+  `REVIEWS` array in `src/components/ReviewsSlider.jsx` with real,
+  permissioned reviews when they are available.
 
-## Content notes
+## Deployment
 
-- All copy is original Australian English and written to be responsible about financial
-  risk - no guaranteed-return claims. Product examples are clearly labelled illustrative.
-- Contact details, social links and phone numbers are placeholders - update them before launch.
-- Review `LegalModal.jsx` legal copy with a qualified professional before going live.
-- Brand colours and fonts are configured in `tailwind.config.js`.
+- `vercel.json` holds the legacy `.html` redirects and the CSP header. Vercel
+  serves `/about-us` from `about-us.html` without a trailing slash.
+- `public/_redirects` mirrors the redirects for Netlify or Cloudflare Pages.
+- `public/sitemap.xml` lists the 12 indexable routes. `/thank-you` and the 404
+  page are intentionally excluded.
+- `public/robots.txt` allows crawling and does not block `/thank-you`, so
+  crawlers can read its noindex tag.
 
-## Before you launch
+## Before launch
 
-1. Replace the placeholder contact/social details in `Footer.jsx`.
-2. Point the OG URL, canonical URL and `og-cover.svg` in `index.html` at your real domain.
-3. Wire the registration form to your backend in `RegistrationForm.jsx`.
+1. Review the legal copy in `src/data/legal.js` with a qualified professional.
+2. Confirm the relay endpoint and offer name in
+   `src/components/RegistrationForm.jsx`.
+3. Replace the sample reviews with real, permissioned feedback.

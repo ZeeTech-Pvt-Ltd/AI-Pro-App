@@ -1,4 +1,18 @@
-# Static-host 404 fallback (Netlify / Cloudflare Pages / Vercel syntax).
-# Unknown routes fall through to the branded /404 page; the "404" status
-# keeps the response a genuine not-found for crawlers.
-/*    /404.html    404
+# Legacy .html URLs -> clean routes (Netlify / Cloudflare Pages syntax).
+/about-us.html /about-us 301
+/faq.html /faq 301
+/contact-us.html /contact 301
+/contact-us /contact 301
+/privacy-policy.html /privacy-policy 301
+/cookie-policy.html /cookie-policy 301
+/terms-and-conditions.html /terms-and-conditions 301
+/risk-disclosure.html /risk-disclosure 301
+/disclaimer.html /disclaimer 301
+/thank-you.html /thank-you 301
+/how-it-works.html /how-it-works 301
+/features.html /features 301
+/reviews.html /reviews 301
+
+# Static-host 404 fallback. Unknown routes fall through to the branded 404
+# page; the "404" status keeps the response a genuine not-found for crawlers.
+/* /404.html 404

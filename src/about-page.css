@@ -56,10 +56,6 @@
 .ab-hero h1 {
   margin-top: 20px; font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.02em; font-weight: 800; color: var(--fw-primary);
 }
-.ab-hero h1 .grad {
-  background: linear-gradient(100deg, var(--fw-secondary), var(--fw-accent));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
 .ab-lede { margin-top: 22px; max-width: 54ch; color: var(--fw-steel); font-size: 17px; }
 .ab-lede strong { color: var(--fw-ink); font-weight: 600; }
 .ab-facts { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 26px; }
@@ -200,9 +196,13 @@
 }
 .ab-cta-band .btn-ghostw:hover { background: rgba(255, 255, 255, 0.1); }
 
-/* Reveal-on-scroll */
-.rv { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+/* Reveal-on-scroll. The hidden state only applies when scripting is
+   available, so prerendered HTML stays visible to crawlers and no-JS readers. */
+.rv { opacity: 1; transform: none; transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+@media (scripting: enabled) {
+  .rv:not(.in) { opacity: 0; transform: translateY(20px); }
+}
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .rv { opacity: 1; transform: none; transition: none; }
+  .rv, .rv:not(.in) { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

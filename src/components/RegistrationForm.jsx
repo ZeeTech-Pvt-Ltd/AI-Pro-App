@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { AlertTriangle, Loader2, ShieldCheck } from 'lucide-react';
 import { useLegal } from './LegalModal.jsx';
 import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
@@ -210,13 +213,14 @@ const FIELDS = {
   phone: { validate: validatePhone },
 };
 
-const initialValues = { firstName: '', lastName: '', email: '', phone: '', agree: false };
+const initialValues = { firstName: '', lastName: '', email: '', phone: '', agree: false, company: '' };
 
 /* ------------------------------------------------------------------ */
 /* Component                                                           */
 /* ------------------------------------------------------------------ */
 
 export default function RegistrationForm() {
+  const router = useRouter();
   const { openLegal } = useLegal();
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
@@ -358,6 +362,11 @@ export default function RegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Honeypot: a real visitor never fills this off-screen field. Stop before
+    // any validation, network request or error message.
+    if (values.company.trim()) return;
+
     // Belt-and-braces double-submit guard on top of the disabled button.
     if (submittingRef.current) return;
     setServerError('');
@@ -407,7 +416,7 @@ export default function RegistrationForm() {
       }
 
       // Registered - go to the confirmation page. No further state updates.
-      window.location.assign('/thank-you');
+      router.push('/thank-you');
     } catch {
       // Network failure / CORS / timeout / server unreachable - keep the
       // visitor on page with an honest message rather than pretending the
@@ -441,10 +450,10 @@ export default function RegistrationForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl border border-ink/10 bg-white p-6 shadow-card sm:p-8"
+      className="relative rounded-2xl border border-ink/10 bg-white p-6 shadow-card sm:p-8"
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-lg font-bold text-primary">Create your account</h3>
+        <h3 className="text-lg font-bold text-primary">Create Your Account</h3>
         <span
           role="img"
           aria-label="Secure sign-up"
@@ -596,6 +605,20 @@ export default function RegistrationForm() {
           <span>{serverError}</span>
         </div>
       ) : null}
+
+      {/* Honeypot: off-screen, not focusable, and must stay empty. */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={values.company}
+          onChange={handleChange('company')}
+        />
+      </div>
 
       <button type="submit" disabled={status === 'submitting'} className="btn-primary mt-6 w-full">
         {status === 'submitting' ? (

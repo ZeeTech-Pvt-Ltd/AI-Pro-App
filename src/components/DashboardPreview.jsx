@@ -2,7 +2,6 @@ import {
   Activity,
   ArrowUpRight,
   Bell,
-  ListFilter,
   PieChart as PieIcon,
   Sparkles,
   TrendingUp,
@@ -45,7 +44,7 @@ export default function DashboardPreview() {
             Inside the workspace
           </Eyebrow>
           <h2 id="preview-heading" className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Everything you research, in one clear view
+            Everything You Research, In One Clear View
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             Market scanning, watchlists, charts and daily summaries — arranged so the important
@@ -56,7 +55,7 @@ export default function DashboardPreview() {
         <div
           className="relative mt-12 overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-primary via-primary-deep to-secondary p-5 shadow-soft sm:rounded-[2.5rem] sm:p-7 lg:p-9"
           role="img"
-          aria-label="Illustrative preview of the AI Pro App console showing market scanning, watchlist, charting and activity panels"
+          aria-label="Preview of the AI Pro App console showing market scanning, watchlist, charting and activity panels"
         >
           {/* Decorative highlights */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -75,10 +74,6 @@ export default function DashboardPreview() {
               <p className="ml-1 text-sm font-semibold text-white/90">My research workspace</p>
             </div>
             <div className="flex items-center gap-2.5">
-              <span className="hidden items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium text-white/70 sm:inline-flex">
-                <ListFilter className="h-3 w-3" aria-hidden="true" />
-                Illustrative sample
-              </span>
               <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-accent to-secondary text-[11px] font-bold text-white">
                 AU
               </span>
@@ -124,7 +119,7 @@ export default function DashboardPreview() {
               <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <p className="font-display text-xl font-extrabold text-ink">+6.2%</p>
-                  <p className="text-[11px] text-muted">Illustrative comparison period</p>
+                  <p className="text-[11px] text-muted">Comparison period</p>
                 </div>
                 <div className="flex gap-4 text-xs text-steel">
                   <span className="flex items-center gap-1.5">
@@ -178,7 +173,7 @@ export default function DashboardPreview() {
               </div>
               <div className="mt-3 flex items-baseline gap-2">
                 <p className="font-display text-2xl font-extrabold text-ink">120+</p>
-                <p className="text-[11px] text-muted">Assets tracked · illustrative</p>
+                <p className="text-[11px] text-muted">Assets tracked</p>
               </div>
               <ul className="mt-4 space-y-3">
                 {ALLOCATION.map((row) => (
@@ -217,10 +212,6 @@ export default function DashboardPreview() {
             </div>
           </div>
 
-          <p className="relative mt-5 text-center text-[11px] text-white/50">
-            Preview shown is an illustrative mock-up for demonstration — not real market data or
-            financial advice.
-          </p>
         </div>
       </div>
     </section>

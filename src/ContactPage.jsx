@@ -27,8 +27,8 @@ export default function ContactPage() {
               <Mail className="h-3.5 w-3.5" aria-hidden="true" />
               Contact us
             </p>
-            <h1 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              We&rsquo;re here to help
+            <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              We&rsquo;re Here To Help
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
               Questions about the platform, your account or our research tools? Our team is available
@@ -40,7 +40,7 @@ export default function ContactPage() {
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Contact details column */}
           <div className="lg:col-span-5">
-            <h2 className="text-xl font-extrabold tracking-tight text-primary">Reach us directly</h2>
+            <h2 className="text-xl font-extrabold tracking-tight text-primary">Reach Us Directly</h2>
             <p className="mt-2 text-sm leading-relaxed text-steel">
               Choose whichever channel suits you. For account or platform questions, the quick form on
               this page is the fastest way to get started.

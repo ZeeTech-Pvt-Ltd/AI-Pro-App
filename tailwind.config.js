@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./app/**/*.{js,jsx}', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
@@ -22,8 +22,13 @@ export default {
         steel: '#4B4E6D',
         muted: '#6B6E85',
       },
+      borderColor: {
+        // Replace Tailwind's default gray-200 border with the site's ink tint.
+        DEFAULT: 'rgba(30, 27, 75, 0.12)',
+      },
       fontFamily: {
         sans: [
+          'var(--font-inter)',
           'Inter',
           'ui-sans-serif',
           'system-ui',
@@ -35,6 +40,7 @@ export default {
           'sans-serif',
         ],
         display: [
+          'var(--font-grotesk)',
           'Space Grotesk',
           'Inter',
           'ui-sans-serif',

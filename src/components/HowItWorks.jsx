@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const STEPS = [
+export const STEPS = [
   {
     number: '01',
     title: 'Create Your Account',
@@ -20,7 +20,7 @@ const STEPS = [
   },
 ];
 
-export default function HowItWorks() {
+export default function HowItWorks({ registerHref = '#register' }) {
   return (
     <section id="how-it-works" className="section overflow-hidden bg-white">
       <div className="shell">
@@ -29,7 +29,7 @@ export default function HowItWorks() {
             How It Works
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Up and running in three simple steps
+            Up And Running In Three Simple Steps
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             No steep learning curve, just a clear path from sign-up to smarter research.
@@ -66,7 +66,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-14 text-center">
-          <a href="#register" className="btn-primary">
+          <a href={registerHref} className="btn-primary">
             Get Started Today
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>

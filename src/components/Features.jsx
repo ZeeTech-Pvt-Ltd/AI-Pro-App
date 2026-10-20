@@ -9,7 +9,7 @@ import {
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const FEATURES = [
+export const FEATURES = [
   {
     icon: Sparkles,
     title: 'Intelligent Market Insights',
@@ -22,12 +22,12 @@ const FEATURES = [
   },
   {
     icon: Activity,
-    title: 'Real-Time Awareness',
+    title: 'Real Time Awareness',
     text: 'Stay informed with regularly updated market information, so your research reflects the latest available data.',
   },
   {
     icon: Smartphone,
-    title: 'Multi-Device Access',
+    title: 'Multi Device Access',
     text: 'Use the platform across desktop, tablet and mobile, and pick up your research wherever you left off.',
   },
   {
@@ -55,7 +55,7 @@ export default function Features() {
             Core Features
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Designed to make market research clearer
+            Designed To Make Market Research Clearer
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             Every feature exists for one reason: to help you access, understand and use market

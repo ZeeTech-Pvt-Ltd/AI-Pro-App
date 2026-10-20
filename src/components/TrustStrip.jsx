@@ -3,22 +3,22 @@ import { Database, GraduationCap, Laptop, Zap } from 'lucide-react';
 const ITEMS = [
   {
     icon: Database,
-    title: 'Data-driven insights',
+    title: 'Data Driven Insights',
     text: 'Structured market information, clearly presented.',
   },
   {
     icon: Zap,
-    title: 'Easy-to-use tools',
+    title: 'Easy To Use Tools',
     text: 'Analytics designed around everyday research.',
   },
   {
     icon: Laptop,
-    title: 'Flexible access',
+    title: 'Flexible Access',
     text: 'On desktop, tablet or your phone.',
   },
   {
     icon: GraduationCap,
-    title: 'Educational resources',
+    title: 'Educational Resources',
     text: 'Build your knowledge at your own pace.',
   },
 ];
@@ -26,7 +26,7 @@ const ITEMS = [
 export default function TrustStrip() {
   return (
     <section aria-labelledby="trust-heading" className="relative border-y border-ink/5 bg-white/80">
-      <h2 id="trust-heading" className="sr-only">Why people use AI Pro App</h2>
+      <h2 id="trust-heading" className="sr-only">Why People Use AI Pro App</h2>
       <div className="shell grid grid-cols-1 gap-x-6 gap-y-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
         {ITEMS.map(({ icon: Icon, title, text }) => (
           <div key={title} className="flex items-start gap-3.5">

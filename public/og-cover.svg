@@ -20,16 +20,21 @@
   </g>
 
   <rect x="84" y="150" width="96" height="96" rx="24" fill="url(#mark)"/>
-  <path d="M108 214 L132 174 L145 196 L162 168 L180 214" fill="none" stroke="#67E8F9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M162 195 L180 214 L155 214 Z" fill="#06B6D4"/>
+  <g transform="translate(90 156) scale(3.5)" fill="#67E8F9">
+    <path d="M9.5 2c.7 4.5 4 7.8 8.5 8.5-4.5.7-7.8 4-8.5 8.5C8.8 14.5 5.5 11.2 1 10.5 5.5 9.8 8.8 6.5 9.5 2Z"/>
+    <path d="M18.5 13.5c.4 2.2 1.8 3.6 4 4-2.2.4-3.6 1.8-4 4-.4-2.2-1.8-3.6-4-4 2.2-.4 3.6-1.8 4-4Z" opacity="0.85"/>
+  </g>
 
   <text x="204" y="202" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" fill="#FFFFFF">AI Pro</text>
   <text x="204" y="266" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" fill="#06B6D4">App</text>
 
-  <text x="204" y="360" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#DBE1FF">
-    AI-assisted cryptocurrency research, scanning and education in one clear platform.
+  <text x="204" y="352" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#DBE1FF">
+    AI-assisted cryptocurrency research, scanning and
   </text>
-  <text x="204" y="452" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#A5B4FC">
+  <text x="204" y="392" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#DBE1FF">
+    education in one clear platform.
+  </text>
+  <text x="204" y="470" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#A5B4FC">
     www.ai-proapp.com
   </text>
 </svg>

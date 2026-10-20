@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Registration confirmation is not useful to index.
-Disallow: /thank-you/
-
 Sitemap: https://ai-proapp.com/sitemap.xml

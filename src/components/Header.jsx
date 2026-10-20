@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import Logo from './Logo.jsx';
 
@@ -6,6 +9,9 @@ import Logo from './Logo.jsx';
 // both from the homepage (same-document scroll) and from sub-pages.
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Features', href: '/features' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -15,9 +21,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Current path for highlighting the active nav link. This is a multi-page
-  // site (no SPA router), so the value is stable for the life of each page.
-  const [pathname] = useState(() => (typeof window === 'undefined' ? '' : window.location.pathname));
+  // Current path for highlighting the active nav link.
+  const pathname = usePathname();
   const isActive = (href) => {
     const linkPath = href.split('#')[0];
     return linkPath === pathname || (pathname === '/' && href.startsWith('/#'));
@@ -64,7 +69,7 @@ export default function Header() {
 
         {/* Desktop navigation */}
         <nav aria-label="Main navigation" className="hidden lg:block">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-5 xl:gap-7">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
               return (
