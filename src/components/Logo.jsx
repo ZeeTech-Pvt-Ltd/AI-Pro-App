@@ -1,5 +1,5 @@
 /**
- * AI Pro App logo - a lightweight SVG wordmark + AI spark mark.
+ * AI Pro App logo - a lightweight SVG wordmark + ascending market bars.
  * `tone`: 'light' renders on a light page; 'dark' renders on a dark (navy) background.
  */
 export function LogoMark({ className = 'h-5 w-5' }) {
@@ -11,17 +11,9 @@ export function LogoMark({ className = 'h-5 w-5' }) {
       aria-hidden="true"
       focusable="false"
     >
-      {/* Large four-point AI spark */}
-      <path
-        d="M9.5 2c.7 4.5 4 7.8 8.5 8.5-4.5.7-7.8 4-8.5 8.5C8.8 14.5 5.5 11.2 1 10.5 5.5 9.8 8.8 6.5 9.5 2Z"
-        fill="currentColor"
-      />
-      {/* Small companion spark */}
-      <path
-        d="M18.5 13.5c.4 2.2 1.8 3.6 4 4-2.2.4-3.6 1.8-4 4-.4-2.2-1.8-3.6-4-4 2.2-.4 3.6-1.8 4-4Z"
-        fill="currentColor"
-        opacity="0.85"
-      />
+      <rect x="3.25" y="13.5" width="4" height="7" rx="1.4" fill="currentColor" opacity="0.8" />
+      <rect x="10" y="9.5" width="4" height="11" rx="1.4" fill="currentColor" />
+      <rect x="16.75" y="5" width="4" height="15.5" rx="1.4" fill="currentColor" opacity="0.9" />
     </svg>
   );
 }

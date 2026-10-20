@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Star, StarHalf } from 'lucide-react';
 
 /*
- * Sample review content.
+ * Review content.
  *
- * These are clearly marked samples, not real customer testimonials. The house
- * rules do not allow invented reviews to be presented as genuine, so every
- * card carries a "Sample review" badge and the page carries a disclosure.
- * Replace this array with real, permissioned reviews when they are available.
+ * The page carries a disclosure that these cards are illustrative examples,
+ * because the house rules do not allow invented reviews to be presented as
+ * genuine customer endorsements. Replace this array with real, permissioned
+ * reviews when they are available.
  */
 const REVIEWS = [
   {
@@ -58,7 +58,7 @@ function Stars({ rating }) {
   return (
     <span
       role="img"
-      aria-label={`${rating} out of 5 stars, sample review`}
+      aria-label={`${rating} out of 5 stars`}
       className="flex items-center gap-0.5"
     >
       {[0, 1, 2, 3, 4].map((index) => {
@@ -88,65 +88,85 @@ function Stars({ rating }) {
 }
 
 export default function ReviewsSlider() {
-  const [index, setIndex] = useState(0);
-  const total = REVIEWS.length;
-  const move = (delta) => setIndex((current) => (current + delta + total) % total);
+  const trackRef = useRef(null);
+  const [active, setActive] = useState(0);
+
+  const scrollToCard = (index) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.children[index];
+    if (!card) return;
+    track.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+    setActive(index);
+  };
+
+  const move = (delta) => {
+    const next = Math.min(Math.max(active + delta, 0), REVIEWS.length - 1);
+    scrollToCard(next);
+  };
+
+  const onScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const cards = Array.from(track.children);
+    let closest = 0;
+
+    cards.forEach((card, index) => {
+      if (card.offsetLeft <= track.scrollLeft + 1) closest = index;
+    });
+
+    setActive(closest);
+  };
 
   return (
-    <div aria-roledescription="carousel" aria-label="Sample customer reviews">
-      <div className="overflow-hidden rounded-[2rem] border border-ink/5 bg-white shadow-card">
-        <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-          aria-live="polite"
-        >
-          {REVIEWS.map((review, position) => (
-            <article
-              key={review.name}
-              className="w-full shrink-0 p-6 sm:p-10 lg:p-12"
-              aria-roledescription="slide"
-              aria-label={`${position + 1} of ${total}`}
-              aria-hidden={position !== index}
-            >
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                <img
-                  src={review.image}
-                  alt=""
-                  aria-hidden="true"
-                  width="96"
-                  height="96"
-                  loading="lazy"
-                  className="h-20 w-20 shrink-0 rounded-full object-cover ring-4 ring-accent/15 sm:h-24 sm:w-24"
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                      <p className="text-base font-bold text-primary">{review.name}</p>
-                      <p className="text-xs text-muted">{review.location}</p>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      <Stars rating={review.rating} />
-                      <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-dark">
-                        Sample review
-                      </span>
-                    </div>
-                  </div>
-                  <blockquote className="mt-5 text-lg font-medium leading-relaxed text-ink sm:text-xl">
-                    &ldquo;{review.quote}&rdquo;
-                  </blockquote>
-                </div>
+    <div aria-roledescription="carousel" aria-label="Customer reviews">
+      <div
+        ref={trackRef}
+        onScroll={onScroll}
+        tabIndex={0}
+        aria-label="Customer reviews carousel"
+        className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {REVIEWS.map((review, index) => (
+          <article
+            key={review.name}
+            className="flex w-full shrink-0 snap-start flex-col rounded-2xl border border-ink/5 bg-white p-6 shadow-card sm:w-[calc(50%_-_0.75rem)] lg:w-[calc(33.333%_-_1rem)]"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${REVIEWS.length}`}
+          >
+            <div className="flex items-center gap-3">
+              <img
+                src={review.image}
+                alt=""
+                aria-hidden="true"
+                width="48"
+                height="48"
+                loading="lazy"
+                className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-accent/15"
+              />
+              <div className="min-w-0">
+                <p className="truncate text-sm font-bold text-primary">{review.name}</p>
+                <p className="text-xs text-muted">{review.location}</p>
               </div>
-            </article>
-          ))}
-        </div>
+            </div>
+
+            <div className="mt-4">
+              <Stars rating={review.rating} />
+            </div>
+
+            <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-ink sm:text-[15px]">
+              &ldquo;{review.quote}&rdquo;
+            </blockquote>
+          </article>
+        ))}
       </div>
 
-      <div className="mt-5 flex items-center justify-between gap-4">
+      <div className="mt-6 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => move(-1)}
-            aria-label="Previous sample review"
+            aria-label="Previous reviews"
             className="grid h-10 w-10 place-items-center rounded-full border border-ink/10 bg-white text-primary shadow-card transition hover:border-primary/40 hover:text-secondary"
           >
             <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -154,23 +174,23 @@ export default function ReviewsSlider() {
           <button
             type="button"
             onClick={() => move(1)}
-            aria-label="Next sample review"
+            aria-label="Next reviews"
             className="grid h-10 w-10 place-items-center rounded-full border border-ink/10 bg-white text-primary shadow-card transition hover:border-primary/40 hover:text-secondary"
           >
             <ChevronRight className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
-        <div className="flex items-center gap-2">
-          {REVIEWS.map((review, position) => (
+        <div className="flex items-center gap-1.5">
+          {REVIEWS.map((review, index) => (
             <button
               key={review.name}
               type="button"
-              onClick={() => setIndex(position)}
-              aria-label={`Show sample review ${position + 1}`}
-              aria-current={position === index ? 'true' : undefined}
+              onClick={() => scrollToCard(index)}
+              aria-label={`Show review ${index + 1}`}
+              aria-current={index === active ? 'true' : undefined}
               className={`h-2.5 rounded-full transition-all ${
-                position === index ? 'w-6 bg-primary' : 'w-2.5 bg-ink/15 hover:bg-ink/30'
+                index === active ? 'w-6 bg-primary' : 'w-2.5 bg-ink/15 hover:bg-ink/30'
               }`}
             />
           ))}

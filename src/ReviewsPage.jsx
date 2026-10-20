@@ -1,5 +1,5 @@
 import { Check, Scale, ShieldCheck } from 'lucide-react';
-import Eyebrow from './components/Eyebrow.jsx';
+import PageHero from './components/PageHero.jsx';
 import PageCTA from './components/PageCTA.jsx';
 import RiskNote from './components/RiskNote.jsx';
 import ReviewsSlider from './components/ReviewsSlider.jsx';
@@ -12,8 +12,8 @@ const PRINCIPLES = [
   },
   {
     icon: Check,
-    title: 'Clearly Labelled',
-    text: 'Sample cards on this page are marked as samples. Published reviews will come from real users who agreed to share them.',
+    title: 'Disclosed Clearly',
+    text: 'The example cards above are disclosed as illustrative, not presented as real customer endorsements.',
   },
   {
     icon: Scale,
@@ -38,26 +38,29 @@ const STANDARDS = [
 ];
 
 /**
- * Dedicated Reviews page. The review slider leads the page inside a
- * shadow-card panel, with no separate gradient header or gray background.
- * Sample reviews are visibly labeled and disclosed.
+ * Dedicated Reviews page. A separate dark hero introduces the page, then the
+ * three-card review slider, review policy and feedback sections follow.
  */
 export default function ReviewsPage() {
   return (
-    <div className="bg-white pt-10 sm:pt-12">
-      <section className="pb-16 sm:pb-20" aria-labelledby="reviews-title">
+    <div className="bg-white">
+      <PageHero
+        eyebrow="Reviews"
+        title="Reviews, Published Honestly"
+        description="See how the platform feels to use, then share your own experience with AI Pro App."
+      />
+
+      <section className="py-16 sm:py-20" aria-labelledby="reviews-slider-title">
         <div className="shell">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow center>Reviews</Eyebrow>
-            <h1
-              id="reviews-title"
-              className="mt-5 text-[clamp(2rem,5vw,3.25rem)] font-extrabold leading-[1.1] tracking-tight text-primary"
+          <div className="mx-auto max-w-2xl text-center">
+            <h2
+              id="reviews-slider-title"
+              className="text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold tracking-tight text-primary"
             >
-              Reviews, Published Honestly
-            </h1>
+              What People Are Saying
+            </h2>
             <p className="mt-4 text-lg leading-relaxed text-steel">
-              See how the platform feels to use, then share your own experience. The cards below
-              are clearly marked samples until real customer reviews are published.
+              A look at the kind of experience the platform is built to deliver.
             </p>
           </div>
 
@@ -66,9 +69,8 @@ export default function ReviewsPage() {
           </div>
 
           <p className="mx-auto mt-5 max-w-2xl text-center text-xs leading-relaxed text-muted">
-            Sample reviews and ratings are shown to demonstrate the layout. They are not real
-            customer endorsements. Genuine reviews will replace them as they are published with
-            permission.
+            The review cards above are illustrative examples. They are not real customer
+            endorsements. Genuine reviews will replace them as they are published with permission.
           </p>
         </div>
       </section>
@@ -155,10 +157,7 @@ export default function ReviewsPage() {
               >
                 Send Feedback
               </a>
-              <a
-                href="/contact"
-                className="btn-ghost"
-              >
+              <a href="/contact" className="btn-ghost">
                 Contact Us
               </a>
             </div>

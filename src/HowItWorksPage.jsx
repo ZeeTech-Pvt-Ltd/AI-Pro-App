@@ -1,5 +1,5 @@
 import { ArrowRight, Clock3, ListChecks, ShieldCheck } from 'lucide-react';
-import Eyebrow from './components/Eyebrow.jsx';
+import PageHero from './components/PageHero.jsx';
 import PageCTA from './components/PageCTA.jsx';
 import RiskNote from './components/RiskNote.jsx';
 import { STEPS } from './components/HowItWorks.jsx';
@@ -23,51 +23,52 @@ const READY = [
 ];
 
 /**
- * Dedicated How It Works page. The content section is the hero: the three
- * steps lead the page inside a shadow-card panel, with no page header card or
- * gray background behind it. The step copy is shared with the homepage version.
+ * Dedicated How It Works page. A separate dark hero introduces the page, then
+ * the three steps and setup details sit on the white content surface below.
  */
 export default function HowItWorksPage() {
   return (
-    <div className="bg-white pt-10 sm:pt-12">
-      <section className="pb-16 sm:pb-20" aria-labelledby="how-title">
+    <div className="bg-white">
+      <PageHero
+        eyebrow="How It Works"
+        title="How AI Pro App Works"
+        description="Three simple steps take you from sign up to a calmer research routine. No card details, no jargon and no long setup."
+      />
+
+      <section className="py-16 sm:py-20" aria-labelledby="steps-title">
         <div className="shell">
-          <div className="rounded-[2rem] border border-ink/5 bg-white p-7 shadow-card sm:p-10 lg:p-12">
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow center>How It Works</Eyebrow>
-              <h1
-                id="how-title"
-                className="mt-5 text-[clamp(2rem,5vw,3.25rem)] font-extrabold leading-[1.1] tracking-tight text-primary"
+          <div className="mx-auto max-w-2xl text-center">
+            <h2
+              id="steps-title"
+              className="text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold tracking-tight text-primary"
+            >
+              Up And Running In Three Simple Steps
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-steel">
+              No steep learning curve, just a clear path from sign up to smarter research.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {STEPS.map((step) => (
+              <article
+                key={step.number}
+                className="flex h-full flex-col rounded-2xl border border-ink/5 bg-white p-7 text-center shadow-card"
               >
-                How AI Pro App Works
-              </h1>
-              <p className="mt-4 text-lg leading-relaxed text-steel">
-                Three simple steps take you from sign up to a calmer research routine. No card
-                details, no jargon and no long setup.
-              </p>
-            </div>
+                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full border-2 border-accent/30 bg-white font-display text-lg font-extrabold text-primary shadow-card">
+                  {step.number}
+                </span>
+                <h3 className="mt-5 text-xl font-bold text-primary">{step.title}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-steel">{step.text}</p>
+              </article>
+            ))}
+          </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {STEPS.map((step) => (
-                <article
-                  key={step.number}
-                  className="flex h-full flex-col rounded-2xl border border-ink/5 bg-white p-7 text-center shadow-card"
-                >
-                  <span className="mx-auto grid h-14 w-14 place-items-center rounded-full border-2 border-accent/30 bg-white font-display text-lg font-extrabold text-primary shadow-card">
-                    {step.number}
-                  </span>
-                  <h2 className="mt-5 text-xl font-bold text-primary">{step.title}</h2>
-                  <p className="mt-2 text-[15px] leading-relaxed text-steel">{step.text}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <a href="/#register" className="btn-primary">
-                Get Started Today
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
+          <div className="mt-10 text-center">
+            <a href="/#register" className="btn-primary">
+              Get Started Today
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>

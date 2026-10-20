@@ -1,6 +1,6 @@
 import { FAQS } from '@/data/faqs.js';
 
-export const SITE = 'https://ai-proapp.com';
+const SITE = 'https://ai-proapp.com';
 export const BRAND = 'AI Pro App';
 export const OG_IMAGE = `${SITE}/og-cover.png`;
 export const OG_IMAGE_ALT = 'AI Pro App, AI-assisted crypto research platform for Australia';

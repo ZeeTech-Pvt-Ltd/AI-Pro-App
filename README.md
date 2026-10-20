@@ -77,9 +77,9 @@ vercel.json               legacy redirects and the Content Security Policy
   `next/script`; Google Search Console verification is set in root metadata.
 - **Legal content**: `src/data/legal.js` is the single source for the footer
   links, the legal dialog and the standalone legal pages.
-- **Reviews**: sample cards are clearly labelled as samples. Replace the
-  `REVIEWS` array in `src/components/ReviewsSlider.jsx` with real,
-  permissioned reviews when they are available.
+- **Reviews**: the review cards are illustrative and disclosed as such on the
+  page. Replace the `REVIEWS` array in `src/components/ReviewsSlider.jsx` with
+  real, permissioned reviews when they are available.
 
 ## Deployment
 
