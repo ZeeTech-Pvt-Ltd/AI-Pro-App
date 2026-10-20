@@ -67,11 +67,6 @@ export default function ReviewsPage() {
           <div className="mt-10">
             <ReviewsSlider />
           </div>
-
-          <p className="mx-auto mt-5 max-w-2xl text-center text-xs leading-relaxed text-muted">
-            The review cards above are illustrative examples. They are not real customer
-            endorsements. Genuine reviews will replace them as they are published with permission.
-          </p>
         </div>
       </section>
 
