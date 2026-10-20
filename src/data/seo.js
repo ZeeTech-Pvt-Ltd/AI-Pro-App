@@ -100,13 +100,13 @@ export const seo = {
     robots: { index: true, follow: true },
     schema: [],
   },
-  reviews: {
+  'ai-pro-app-reviews': {
     title: 'Reviews | AI Pro App',
     description:
       'See how AI Pro App collects and publishes real customer feedback, with no invented testimonials. Share your own experience today.',
     ogDescription:
       'Real feedback only. Read how AI Pro App handles reviews and how to share your own experience.',
-    canonical: 'https://ai-proapp.com/reviews',
+    canonical: 'https://ai-proapp.com/ai-pro-app-reviews',
     robots: { index: true, follow: true },
     schema: [],
   },

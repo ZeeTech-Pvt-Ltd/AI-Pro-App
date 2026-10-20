@@ -11,7 +11,9 @@
 /thank-you.html /thank-you 301
 /how-it-works.html /how-it-works 301
 /features.html /features 301
-/reviews.html /reviews 301
+/reviews /ai-pro-app-reviews 301
+/reviews/ /ai-pro-app-reviews 301
+/reviews.html /ai-pro-app-reviews 301
 
 # Static-host 404 fallback. Unknown routes fall through to the branded 404
 # page; the "404" status keeps the response a genuine not-found for crawlers.

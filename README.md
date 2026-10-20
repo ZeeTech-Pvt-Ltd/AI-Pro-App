@@ -32,7 +32,7 @@ not used for the exported site.
 | `/` | Home |
 | `/how-it-works` | How It Works |
 | `/features` | Features |
-| `/reviews` | Reviews |
+| `/ai-pro-app-reviews` | Reviews |
 | `/about-us` | About Us |
 | `/faq` | FAQ |
 | `/contact` | Contact Us |

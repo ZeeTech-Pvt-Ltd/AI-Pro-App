@@ -12,7 +12,9 @@
     { "source": "/thank-you.html", "destination": "/thank-you", "permanent": true },
     { "source": "/how-it-works.html", "destination": "/how-it-works", "permanent": true },
     { "source": "/features.html", "destination": "/features", "permanent": true },
-    { "source": "/reviews.html", "destination": "/reviews", "permanent": true }
+    { "source": "/reviews", "destination": "/ai-pro-app-reviews", "permanent": true },
+    { "source": "/reviews/", "destination": "/ai-pro-app-reviews", "permanent": true },
+    { "source": "/reviews.html", "destination": "/ai-pro-app-reviews", "permanent": true }
   ],
   "headers": [
     {

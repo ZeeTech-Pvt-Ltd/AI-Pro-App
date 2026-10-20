@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Features', href: '/features' },
-  { label: 'Reviews', href: '/reviews' },
+  { label: 'Reviews', href: '/ai-pro-app-reviews' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
