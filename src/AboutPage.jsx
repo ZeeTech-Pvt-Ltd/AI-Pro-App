@@ -267,7 +267,7 @@ export default function AboutPage() {
             <div className="ab-val rv">
               <span className="num">/ 04</span>
               <h3>Honesty &amp; Accountability</h3>
-              <p>No guaranteed returns, no pressure tactics, and clear risk disclosure on every example we show.</p>
+              <p>No guaranteed returns, no pressure tactics, and clear labelling on every example we show.</p>
             </div>
           </div>
         </div>

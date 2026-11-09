@@ -1,7 +1,6 @@
 import { Check, Scale, ShieldCheck } from 'lucide-react';
 import PageHero from './components/PageHero.jsx';
 import PageCTA from './components/PageCTA.jsx';
-import RiskNote from './components/RiskNote.jsx';
 import ReviewsSlider from './components/ReviewsSlider.jsx';
 
 const PRINCIPLES = [
@@ -33,7 +32,7 @@ const STANDARDS = [
   },
   {
     title: 'Honesty',
-    text: 'Do we label examples, avoid promises and keep risk visible?',
+    text: 'Do we label examples, avoid promises and keep the details clear?',
   },
 ];
 
@@ -160,7 +159,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <RiskNote />
       <PageCTA />
     </div>
   );

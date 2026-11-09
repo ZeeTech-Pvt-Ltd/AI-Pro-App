@@ -50,7 +50,7 @@ const REVIEWS = [
     rating: 5,
     image: '/reviews/reviewer-5.jpg',
     quote:
-      'Clear layout, no pressure and no hype. The risk labels are visible, which I appreciate.',
+      'Clear layout, no pressure and no hype. The details are easy to find, which I appreciate.',
   },
 ];
 

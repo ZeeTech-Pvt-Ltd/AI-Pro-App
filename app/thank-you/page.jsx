@@ -49,13 +49,6 @@ export default function ThankYouPage() {
             Back To Homepage
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-
-          <p className="mt-6 text-xs leading-relaxed text-muted">
-            <strong className="font-semibold text-ink">Risk warning:</strong> Financial markets
-            involve risk. Information provided on this website is general in nature and does not
-            constitute personal financial advice. Consider your circumstances and seek
-            professional advice where appropriate.
-          </p>
         </div>
       </div>
     </div>

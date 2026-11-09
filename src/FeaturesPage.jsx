@@ -1,7 +1,6 @@
 import { ArrowRight, GraduationCap, Scale, Wallet } from 'lucide-react';
 import PageHero from './components/PageHero.jsx';
 import PageCTA from './components/PageCTA.jsx';
-import RiskNote from './components/RiskNote.jsx';
 import { FEATURES } from './components/Features.jsx';
 
 const NOT_LIST = [
@@ -18,7 +17,7 @@ const NOT_LIST = [
   {
     icon: GraduationCap,
     title: 'Not A Shortcut',
-    text: 'The platform helps you research with more context, but it cannot remove market risk or predict what happens next.',
+    text: 'The platform helps you research with more context, but it cannot predict what happens next.',
   },
 ];
 
@@ -117,7 +116,6 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <RiskNote />
       <PageCTA />
     </div>
   );

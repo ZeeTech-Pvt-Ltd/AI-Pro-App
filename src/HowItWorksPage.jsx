@@ -1,7 +1,6 @@
 import { ArrowRight, Clock3, ListChecks, ShieldCheck } from 'lucide-react';
 import PageHero from './components/PageHero.jsx';
 import PageCTA from './components/PageCTA.jsx';
-import RiskNote from './components/RiskNote.jsx';
 import { STEPS } from './components/HowItWorks.jsx';
 
 const READY = [
@@ -115,7 +114,6 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <RiskNote />
       <PageCTA />
     </div>
   );

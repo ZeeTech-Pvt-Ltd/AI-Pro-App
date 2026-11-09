@@ -9,7 +9,6 @@ const POPULAR = [
   { label: 'About Us', href: '/about-us', hint: 'Who we are and what we build' },
   { label: 'FAQ', href: '/faq', hint: 'Common questions, answered' },
   { label: 'Contact Us', href: '/contact', hint: 'Reach the team directly' },
-  { label: 'Risk Disclosure', href: '/risk-disclosure', hint: 'Our general information notice' },
 ];
 
 export default function NotFoundPage() {
