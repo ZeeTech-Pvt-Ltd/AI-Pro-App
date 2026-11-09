@@ -9,7 +9,7 @@ export default function PageCTA({
   text = 'Create your account and see the platform for yourself, with no card details required.',
 }) {
   return (
-    <section className="pb-16 pt-8 sm:pb-24" aria-labelledby="page-cta-title">
+    <section className="py-16 sm:py-24" aria-labelledby="page-cta-title">
       <div className="shell">
         <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary-deep to-secondary px-6 py-14 text-center shadow-soft sm:px-12 sm:py-16">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
