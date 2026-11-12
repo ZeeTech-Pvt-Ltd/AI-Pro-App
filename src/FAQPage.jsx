@@ -45,8 +45,8 @@ export default function FAQPage() {
               </span>
               <h2 className="mt-4 text-lg font-bold text-primary">Can&rsquo;t Find Your Answer?</h2>
               <p className="mt-2 text-sm leading-relaxed text-steel">
-                Send us a message and our team will get back to you during Australian business hours
-                (Mon&ndash;Fri, 9am&ndash;5pm AEST). We&rsquo;re happy to help.
+                Send us a message and our team will get back to you during business hours
+                (Monday to Friday). We&rsquo;re happy to help.
               </p>
               <div className="mt-5 space-y-2.5">
                 <a href="mailto:support@ai-proapp.com" className="btn-primary w-full">

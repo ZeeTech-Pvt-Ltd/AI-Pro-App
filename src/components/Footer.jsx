@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin } from 'lucide-react';
+import { Clock, Globe2, Mail } from 'lucide-react';
 import Logo from './Logo.jsx';
 import { LEGAL_LINKS } from '@/data/legal.js';
 
@@ -14,8 +14,8 @@ const EXPLORE_LINKS = [
 
 export const CONTACT_DETAILS = [
   { icon: Mail, label: 'Email us', value: 'support@ai-proapp.com', href: 'mailto:support@ai-proapp.com' },
-  { icon: MapPin, label: 'Based in', value: 'Sydney, NSW, Australia', href: undefined },
-  { icon: Clock, label: 'Support hours', value: 'Mon–Fri, 9am–5pm AEST', href: undefined },
+  { icon: Globe2, label: 'Service', value: 'Online, worldwide', href: undefined },
+  { icon: Clock, label: 'Support hours', value: 'Monday to Friday', href: undefined },
 ];
 
 export default function Footer() {
@@ -62,8 +62,8 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <Logo tone="dark" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              AI Pro App is an Australian crypto research platform, built to help you
-              understand digital-asset markets and make more informed decisions with AI-assisted
+              AI Pro App is a crypto and multi asset research platform, built to help you
+              understand global markets and make more informed decisions with AI assisted
               scanning, charts and education.
             </p>
           </div>
@@ -105,8 +105,8 @@ export default function Footer() {
                   support@ai-proapp.com
                 </a>
               </li>
-              <li>Sydney, NSW, Australia</li>
-              <li>Support hours: Mon–Fri, 9am–5pm AEST</li>
+              <li>Online, worldwide</li>
+              <li>Support hours: Monday to Friday</li>
             </ul>
           </div>
         </div>

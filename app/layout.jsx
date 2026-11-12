@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: new URL(SITE),
   applicationName: 'AI Pro App',
   title: {
-    default: 'AI Pro App | AI Crypto Research Assistant for Australia',
+    default: 'AI Pro App | AI Crypto Research Assistant',
     template: '%s | AI Pro App',
   },
   formatDetection: { telephone: false, address: false, email: false },

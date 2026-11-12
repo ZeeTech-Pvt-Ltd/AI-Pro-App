@@ -7,7 +7,7 @@
 export const FAQS = [
   {
     q: 'What Is The Platform?',
-    a: 'AI Pro App is an online platform that brings cryptocurrency market information together (live prices, AI-assisted scanning, charts, watchlists and educational content) into a single, easy-to-use workspace for Australians who want to research digital assets more clearly.',
+    a: 'AI Pro App is an online platform that brings cryptocurrency market information together (live prices, AI-assisted scanning, charts, watchlists and educational content) into a single, easy-to-use workspace for people who want to research digital assets more clearly.',
   },
   {
     q: 'Who Is The Platform Designed For?',
@@ -31,7 +31,7 @@ export const FAQS = [
   },
   {
     q: 'Is Financial Advice Provided?',
-    a: 'No. AI Pro App provides general information and educational content only. Nothing on the platform is personal financial advice and we do not hold an Australian financial services licence. Always consider your own circumstances and seek licensed advice where appropriate.',
+    a: 'No. AI Pro App provides general information and educational content only. Nothing on the platform is personal financial advice. Always consider your own circumstances and seek licensed advice where appropriate.',
   },
   {
     q: 'Is My Information Secure?',

@@ -3,7 +3,7 @@ import { FAQS } from '@/data/faqs.js';
 const SITE = 'https://ai-proapp.com';
 export const BRAND = 'AI Pro App';
 export const OG_IMAGE = `${SITE}/og-cover.png`;
-export const OG_IMAGE_ALT = 'AI Pro App, AI-assisted crypto research platform for Australia';
+export const OG_IMAGE_ALT = 'AI Pro App, AI assisted crypto and market research platform';
 
 const HOME_SCHEMA = {
   '@context': 'https://schema.org',
@@ -14,7 +14,7 @@ const HOME_SCHEMA = {
       url: 'https://ai-proapp.com/',
       name: 'AI Pro App',
       inLanguage: 'en-AU',
-      description: 'An AI-assisted cryptocurrency research platform for Australians.',
+      description: 'An AI assisted cryptocurrency research platform for a global audience.',
       publisher: { '@id': 'https://ai-proapp.com/#organization' },
     },
     {
@@ -23,12 +23,6 @@ const HOME_SCHEMA = {
       name: 'AI Pro App',
       url: 'https://ai-proapp.com/',
       email: 'support@ai-proapp.com',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Sydney',
-        addressRegion: 'NSW',
-        addressCountry: 'AU',
-      },
     },
   ],
 };
@@ -40,17 +34,10 @@ const CONTACT_SCHEMA = {
   name: 'AI Pro App',
   url: 'https://ai-proapp.com/',
   email: 'support@ai-proapp.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Sydney',
-    addressRegion: 'NSW',
-    addressCountry: 'AU',
-  },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
     email: 'support@ai-proapp.com',
-    areaServed: 'AU',
     availableLanguage: 'en',
   },
 };
@@ -72,11 +59,11 @@ const FAQ_SCHEMA = {
  */
 export const seo = {
   home: {
-    title: 'AI Pro App | AI Crypto Research Assistant for Australia',
+    title: 'AI Pro App | AI Crypto Research Assistant',
     description:
-      'AI Pro App helps Australians research cryptocurrency markets with AI-assisted scanning, charts, alerts and education.',
+      'AI Pro App helps people research cryptocurrency markets with AI-assisted scanning, charts, alerts and education.',
     ogDescription:
-      'AI-assisted crypto market scanning, charts, alerts and education in one accessible platform for Australians.',
+      'AI-assisted crypto market scanning, charts, alerts and education in one accessible platform.',
     canonical: 'https://ai-proapp.com/',
     robots: { index: true, follow: true },
     schema: [HOME_SCHEMA],
@@ -113,9 +100,9 @@ export const seo = {
   'about-us': {
     title: 'About Us | AI Pro App',
     description:
-      'AI Pro App, an Australian AI-assisted crypto research platform with market scanning, charts, alerts and education, for more context and less guesswork.',
+      'AI Pro App, an AI-assisted crypto research platform with market scanning, charts, alerts and education, for more context and less guesswork.',
     ogDescription:
-      'An Australian AI-assisted crypto research platform built on clarity, education and honest information.',
+      'An AI-assisted crypto research platform built on clarity, education and honest information.',
     canonical: 'https://ai-proapp.com/about-us',
     robots: { index: true, follow: true },
     schema: [],
@@ -125,7 +112,7 @@ export const seo = {
     description:
       'Frequently asked questions about AI Pro App: what the platform is, who it is for, how registration works and how your information is protected.',
     ogDescription:
-      'Straight answers about AI Pro App, the AI-assisted crypto research platform for Australians.',
+      'Straight answers about AI Pro App, the AI-assisted crypto research platform.',
     canonical: 'https://ai-proapp.com/faq',
     robots: { index: true, follow: true },
     schema: [FAQ_SCHEMA],
@@ -133,8 +120,8 @@ export const seo = {
   contact: {
     title: 'Contact Us | AI Pro App',
     description:
-      'Contact the AI Pro App team. Questions about the platform, your account or our research tools? Reach us during Australian business hours.',
-    ogDescription: 'Reach the AI Pro App team during Australian business hours.',
+      'Contact the AI Pro App team. Questions about the platform, your account or our research tools? Reach us during business hours.',
+    ogDescription: 'Reach the AI Pro App team during business hours.',
     canonical: 'https://ai-proapp.com/contact',
     robots: { index: true, follow: true },
     schema: [CONTACT_SCHEMA],

@@ -32,7 +32,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
               Questions about the platform, your account or our research tools? Our team is available
-              during Australian business hours and happy to point you in the right direction.
+              during business hours and happy to point you in the right direction.
             </p>
           </div>
         </header>
@@ -79,8 +79,8 @@ export default function ContactPage() {
 
             <div className="mt-5 rounded-2xl border border-ink/5 bg-canvas/70 p-4">
               <p className="text-sm leading-relaxed text-steel">
-                We reply to messages during Australian business hours (Mon&ndash;Fri, 9am&ndash;5pm
-                AEST). If you&rsquo;re after a quick answer, our{' '}
+                We reply to messages during business hours (Monday to Friday). If you&rsquo;re
+                after a quick answer, our{' '}
                 <a href="/faq" className="font-medium text-secondary underline decoration-secondary/40 underline-offset-2 hover:decoration-secondary">
                   FAQ page
                 </a>{' '}

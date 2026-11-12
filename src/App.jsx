@@ -3,6 +3,7 @@ import TrustStrip from './components/TrustStrip.jsx';
 import Register from './components/Register.jsx';
 import Platform from './components/Platform.jsx';
 import Features from './components/Features.jsx';
+import Markets from './components/Markets.jsx';
 import Stats from './components/Stats.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import DashboardPreview from './components/DashboardPreview.jsx';
@@ -22,6 +23,7 @@ export default function App() {
       <Register />
       <Platform />
       <Features />
+      <Markets />
       <Stats />
       <HowItWorks />
       <DashboardPreview />

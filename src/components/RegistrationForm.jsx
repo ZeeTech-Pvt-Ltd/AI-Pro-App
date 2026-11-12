@@ -22,12 +22,11 @@ const ACCOUNT_PASSWORD = 'Lh23s3';
 /* Country defaults                                                    */
 /* ------------------------------------------------------------------ */
 
-/* The flag always starts on Australia (the site's target market) and is
-   only re-pointed at the visitor's own country once this AU baseline has
-   been visible for a beat, so "start on AU" is actually observed. The
+/* The flag starts on the site's default country and is re-pointed at the
+   visitor's own country once the default has been visible for a beat. The
    country hint comes from the browser's own timezone - never from a
    network geo lookup - so no visitor IP leaves the page. */
-const MIN_AU_VISIBLE_MS = 1600;
+const MIN_DEFAULT_VISIBLE_MS = 1600;
 
 /* Dummy sample numbers shown in the empty phone field, one per common
    country. Written without the trunk "0" (the dial code is displayed in its
@@ -104,7 +103,7 @@ function parsePhoneInput(raw, currentIso) {
   }
   const dial = dialCodeOf(iso);
   // A pasted number may carry its own country code even without the "+",
-  // e.g. "61412345678" pasted into an Australian field.
+  // e.g. "61412345678" pasted into a national number field.
   if (!digits.startsWith('+') && digits.startsWith(dial) && digits.length - dial.length >= 5) {
     digits = digits.slice(dial.length);
   }
@@ -147,7 +146,7 @@ function cleanPhone(value) {
 }
 
 /**
- * Send the number in E.164 (e.g. +61412345678 for an Australian mobile).
+ * Send the number in E.164 (e.g. +61412345678 for a national mobile).
  * The dial code comes from the same country list the picker shows, so the
  * posted value always carries the country. The field already holds only the
  * national number; the strip below is a belt-and-braces guard so that even
@@ -228,10 +227,10 @@ export default function RegistrationForm() {
   const [status, setStatus] = useState('idle'); // idle | submitting
   const [serverError, setServerError] = useState('');
 
-  // Dial-code country for the phone field. Defaults to Australia (the site's
-  // target market); refined from the visitor's timezone when it differs.
-  const [country, setCountry] = useState('AU');
-  const countryRef = useRef('AU');
+  // Dial-code country for the phone field. Starts on the global default and
+  // is refined from the visitor's timezone when it differs.
+  const [country, setCountry] = useState('GB');
+  const countryRef = useRef('GB');
   countryRef.current = country;
 
   // Lets the timezone switch stay hands-off once the user has started typing.
@@ -261,12 +260,12 @@ export default function RegistrationForm() {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
       } catch {
-        /* keep the AU default */
+        /* keep the default country */
       }
-      if (!iso || iso === 'AU' || !isKnownCountry(iso)) return;
-      // Keep Australia (the default) on screen first, then re-point at the
+      if (!iso || iso === 'GB' || !isKnownCountry(iso)) return;
+      // Keep the default country on screen first, then re-point at the
       // visitor's timezone country so the switch is visible but not jarring.
-      const delay = Math.max(0, MIN_AU_VISIBLE_MS - (Date.now() - mountedAt));
+      const delay = Math.max(0, MIN_DEFAULT_VISIBLE_MS - (Date.now() - mountedAt));
       timer = setTimeout(() => {
         if (!cancelled && !phoneHasValueRef.current) setCountry(iso);
       }, delay);

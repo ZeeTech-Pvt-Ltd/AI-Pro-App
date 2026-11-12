@@ -1,9 +1,9 @@
 # AI Pro App
 
-AI Pro App is an Australian market insights, analytics and education website,
-built with **Next.js App Router**, React, Tailwind CSS and Lucide icons. Every
-route is prerendered at build time with `output: 'export'`, so production is a
-plain static site.
+AI Pro App is a market insights, analytics and education website, built with
+**Next.js App Router**, React, Tailwind CSS and Lucide icons. Every route is
+prerendered at build time with `output: 'export'`, so production is a plain
+static site.
 
 ## Getting started
 

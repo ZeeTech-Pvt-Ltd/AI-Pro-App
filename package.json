@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "AI Pro App - an AI-assisted cryptocurrency research assistant for Australians.",
+  "description": "AI Pro App - an AI-assisted market research platform for global markets.",
   "scripts": {
     "dev": "next dev -H 127.0.0.1 -p 5174",
     "build": "next build",

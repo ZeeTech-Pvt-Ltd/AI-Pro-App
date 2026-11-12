@@ -48,7 +48,7 @@ export default function AboutPage() {
               Research That Helps You Decide, Not Guess.
             </h1>
             <p className="ab-lede">
-              AI Pro App is an Australian platform that pairs <strong>AI-assisted market scanning</strong>
+              AI Pro App is a market research platform that pairs <strong>AI-assisted market scanning</strong>
               with <strong>plain-English education</strong>. We help everyday people research Bitcoin, Ethereum and
               60+ other cryptocurrencies with clearer context: no hype, no noise, no shortcuts.
             </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Made in Australia
+                Global market coverage
               </span>
               <span className="ab-chip">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -168,7 +168,7 @@ export default function AboutPage() {
                     <circle cx="12" cy="12" r="10" fill="#06B6D4" opacity="0.18" />
                     <path d="M8 12.5l2.6 2.6L16 9.5" stroke="#0E7490" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  Built for Australians, with Australian support hours.
+                  Built for everyday investors around the world.
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

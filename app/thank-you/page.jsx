@@ -10,7 +10,7 @@ export const metadata = {
 const STEPS = [
   'Open the confirmation email we just sent and click the link to verify your address.',
   'Log in and set up your market watchlist to start exploring the tools and learning resources.',
-  'Got questions? Our team replies Monday to Friday, 9am to 5pm AEST at support@ai-proapp.com.',
+  'Got questions? Our team replies Monday to Friday at support@ai-proapp.com.',
 ];
 
 export default function ThankYouPage() {

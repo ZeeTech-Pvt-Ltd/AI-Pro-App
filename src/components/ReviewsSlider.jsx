@@ -14,7 +14,7 @@ import { ChevronLeft, ChevronRight, Star, StarHalf } from 'lucide-react';
 const REVIEWS = [
   {
     name: 'Alex M.',
-    location: 'Sydney, NSW',
+    location: 'London, UK',
     rating: 5,
     image: '/reviews/reviewer-1.jpg',
     quote:
@@ -22,7 +22,7 @@ const REVIEWS = [
   },
   {
     name: 'Priya S.',
-    location: 'Melbourne, VIC',
+    location: 'Singapore',
     rating: 4.5,
     image: '/reviews/reviewer-2.jpg',
     quote:
@@ -30,7 +30,7 @@ const REVIEWS = [
   },
   {
     name: 'Daniel K.',
-    location: 'Brisbane, QLD',
+    location: 'Toronto, Canada',
     rating: 4,
     image: '/reviews/reviewer-3.jpg',
     quote:
@@ -38,7 +38,7 @@ const REVIEWS = [
   },
   {
     name: 'Sophie L.',
-    location: 'Perth, WA',
+    location: 'New York, USA',
     rating: 4.5,
     image: '/reviews/reviewer-4.jpg',
     quote:
@@ -46,7 +46,7 @@ const REVIEWS = [
   },
   {
     name: 'Marcus T.',
-    location: 'Adelaide, SA',
+    location: 'Dubai, UAE',
     rating: 5,
     image: '/reviews/reviewer-5.jpg',
     quote:
