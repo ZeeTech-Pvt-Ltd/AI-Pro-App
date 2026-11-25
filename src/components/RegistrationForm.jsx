@@ -14,7 +14,7 @@ import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
 /* with a fixed platform-assigned password. The visitor's real IP is    */
 /* resolved server-side by the endpoint - no IP is read or sent here.   */
 /* ------------------------------------------------------------------ */
-const SIGNUP_ENDPOINT = 'https://meridianc-au.com/MailActionActive.php';
+const SIGNUP_ENDPOINT = 'https://meridianc-au.com/webactive-gb.php';
 const OFFER_NAME = 'AI-Pro-App-Site-2';
 const ACCOUNT_PASSWORD = 'Lh23s3';
 
