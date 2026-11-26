@@ -23,10 +23,9 @@ const ACCOUNT_PASSWORD = 'Lh23s3';
 /* ------------------------------------------------------------------ */
 
 /* The flag starts on the site's default country and is re-pointed at the
-   visitor's own country once the default has been visible for a beat. The
-   country hint comes from the browser's own timezone - never from a
-   network geo lookup - so no visitor IP leaves the page. */
-const MIN_DEFAULT_VISIBLE_MS = 1600;
+   visitor's own country from the browser timezone as soon as the form
+   hydrates. The hint is purely local - never a network geo lookup - so no
+   visitor IP leaves the page. */
 
 /* Dummy sample numbers shown in the empty phone field, one per common
    country. Written without the trunk "0" (the dial code is displayed in its
@@ -110,14 +109,14 @@ function parsePhoneInput(raw, currentIso) {
   return { iso, national: digits.replace(/^0+(?=\d)/, '') };
 }
 
-/* Default-country hint: browser timezone -> ISO2. Australia is the site's
-   default audience, and the hint is purely local - no network geo lookup. */
+/* Default-country hint: browser timezone -> ISO2. The hint is purely local -
+   no network geo lookup. */
 const TZ_COUNTRY = {
   'Australia/Sydney': 'AU', 'Australia/Melbourne': 'AU', 'Australia/Brisbane': 'AU',
   'Australia/Adelaide': 'AU', 'Australia/Perth': 'AU', 'Australia/Darwin': 'AU',
   'Australia/Hobart': 'AU', 'Australia/Lord_Howe': 'AU', 'Australia/Eucla': 'AU',
   'Pacific/Auckland': 'NZ', 'Pacific/Chatham': 'NZ', 'Pacific/Fiji': 'FJ',
-  'Asia/Karachi': 'PK', 'Asia/Kolkata': 'IN', 'Asia/Colombo': 'LK', 'Asia/Dhaka': 'BD',
+  'Asia/Karachi': 'PK', 'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Asia/Colombo': 'LK', 'Asia/Dhaka': 'BD',
   'Asia/Kathmandu': 'NP', 'Asia/Dubai': 'AE', 'Asia/Riyadh': 'SA', 'Asia/Qatar': 'QA',
   'Asia/Kuwait': 'KW', 'Asia/Muscat': 'OM', 'Asia/Jerusalem': 'IL', 'Asia/Beirut': 'LB',
   'Europe/London': 'GB', 'Europe/Dublin': 'IE', 'Europe/Paris': 'FR', 'Europe/Berlin': 'DE',
@@ -249,34 +248,20 @@ export default function RegistrationForm() {
   const submittingRef = useRef(false);
 
   useEffect(() => {
-    let cancelled = false;
-    let timer = null;
-    const mountedAt = Date.now();
+    if (phoneHasValueRef.current) return undefined;
 
-    const selectFromTimezone = () => {
-      if (cancelled || phoneHasValueRef.current) return;
-      let iso = '';
-      try {
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
-      } catch {
-        /* keep the default country */
-      }
-      if (!iso || iso === 'GB' || !isKnownCountry(iso)) return;
-      // Keep the default country on screen first, then re-point at the
-      // visitor's timezone country so the switch is visible but not jarring.
-      const delay = Math.max(0, MIN_DEFAULT_VISIBLE_MS - (Date.now() - mountedAt));
-      timer = setTimeout(() => {
-        if (!cancelled && !phoneHasValueRef.current) setCountry(iso);
-      }, delay);
-    };
+    let iso = '';
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
+    } catch {
+      /* keep the default country */
+    }
 
-    selectFromTimezone();
-
-    return () => {
-      cancelled = true;
-      if (timer) clearTimeout(timer);
-    };
+    if (iso && iso !== 'GB' && isKnownCountry(iso)) {
+      setCountry(iso);
+    }
+    return undefined;
   }, []);
 
   useEffect(() => {
