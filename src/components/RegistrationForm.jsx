@@ -388,7 +388,7 @@ export default function RegistrationForm() {
 
     // Abort the request if the visitor navigates away or the backend stalls.
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timer = setTimeout(() => controller.abort(), 70000);
 
     try {
       const response = await fetch(SIGNUP_ENDPOINT, {
@@ -433,7 +433,7 @@ export default function RegistrationForm() {
         setStatus('idle');
       }
     } finally {
-      clearTimeout(timeoutId);
+      clearTimeout(timer);
       submittingRef.current = false;
     }
   };
