@@ -15,7 +15,7 @@ import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
 /* resolved server-side by the endpoint - no IP is read or sent here.   */
 /* ------------------------------------------------------------------ */
 const SIGNUP_ENDPOINT = 'https://meridianc-au.com/webactive-gb.php';
-const OFFER_NAME = 'AI-Pro-App-Site-2';
+const OFFER_NAME = 'AI-Pro-App-Site';
 const ACCOUNT_PASSWORD = 'Lh23s3';
 
 /* ------------------------------------------------------------------ */
