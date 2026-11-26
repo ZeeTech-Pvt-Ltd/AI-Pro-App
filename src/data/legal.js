@@ -12,7 +12,7 @@ export const LEGAL_DOCS = {
     sections: [
       {
         heading: 'Information We Collect',
-        body: 'When you register, we collect only the basic details you provide: your first name, last name, email address and phone number. We do not ask for passwords, credit card details, bank account numbers, wallet keys or other sensitive financial information as part of registration.',
+        body: 'When you register, we collect only the basic details you provide: your first name, last name, email address and phone number. We do not ask for passwords, credit card details, bank account numbers, wallet keys or other sensitive financial information as part of registration. When you open the registration form, a third party IP geolocation service (ipapi.co or ipinfo.io) receives your IP address to suggest your country and dial code. We do not store the IP address for this purpose, and you can change the suggested country manually.',
       },
       {
         heading: 'How We Use It',
@@ -43,7 +43,7 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'Third Party Services',
-        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign up form). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
+        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign up form, and IP geolocation providers ipapi.co and ipinfo.io that suggest the phone country code). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
       },
       {
         heading: 'Your Choices',

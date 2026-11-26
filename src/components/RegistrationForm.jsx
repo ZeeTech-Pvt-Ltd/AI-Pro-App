@@ -248,20 +248,43 @@ export default function RegistrationForm() {
   const submittingRef = useRef(false);
 
   useEffect(() => {
-    if (phoneHasValueRef.current) return undefined;
+    let cancelled = false;
 
-    let iso = '';
-    try {
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
-    } catch {
-      /* keep the default country */
-    }
+    const applyCountry = (code) => {
+      if (cancelled || phoneHasValueRef.current) return;
+      const iso = String(code || '').toUpperCase();
+      if (isKnownCountry(iso)) setCountry(iso);
+    };
 
-    if (iso && iso !== 'GB' && isKnownCountry(iso)) {
-      setCountry(iso);
-    }
-    return undefined;
+    // Fallback for blocked or unavailable IP lookups.
+    const applyTimezone = () => {
+      let iso = '';
+      try {
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
+      } catch {
+        /* keep the default country */
+      }
+      if (iso && iso !== 'GB' && isKnownCountry(iso)) applyCountry(iso);
+    };
+
+    const trySource = (url, read) =>
+      fetch(url, { cache: 'no-store' })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((data) => {
+          if (!data) throw new Error('empty');
+          const code = read(data);
+          if (code) applyCountry(code);
+          else throw new Error('no country');
+        });
+
+    trySource('https://ipapi.co/json/', (data) => data.country_code || data.country)
+      .catch(() => trySource('https://ipinfo.io/json', (data) => data.country))
+      .catch(applyTimezone);
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
