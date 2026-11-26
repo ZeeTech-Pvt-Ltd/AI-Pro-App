@@ -388,7 +388,7 @@ export default function RegistrationForm() {
 
     // Abort the request if the visitor navigates away or the backend stalls.
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 70000);
+    const timer = setTimeout(() => controller.abort(), 25000);
 
     try {
       const response = await fetch(SIGNUP_ENDPOINT, {
